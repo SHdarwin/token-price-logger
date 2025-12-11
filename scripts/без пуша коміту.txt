@@ -1,0 +1,53 @@
+import requests
+import csv
+from datetime import datetime, timezone
+
+# Перелік токенів для логування
+TOKENS = ["BTCUSDT", "ETHUSDT"]
+
+# CSV файл
+CSV_FILE = "data/prices.csv"
+
+# Часові межі (UTC) для Open і Close американської біржі
+OPEN_HOUR = 14  # 14:30 UTC
+OPEN_MINUTE = 30
+CLOSE_HOUR = 21  # 21:00 UTC
+CLOSE_MINUTE = 0
+
+def get_price(symbol: str) -> float | None:
+    """Отримати поточну ціну токена через Binance API."""
+    url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
+    try:
+        resp = requests.get(url, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        return float(data.get("price"))
+    except Exception as e:
+        print(f"Error fetching {symbol}: {e}")
+        return None
+
+def update_prices_csv(trade_type: str):
+    """Додати ціни у CSV з типом Open/Close"""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+    rows = []
+    for tok in TOKENS:
+        price = get_price(tok)
+        if price is not None:
+            rows.append([now, tok, price, trade_type])
+
+    if rows:
+        with open(CSV_FILE, mode="a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            for row in rows:
+                writer.writerow(row)
+        print(f"{trade_type} prices recorded at {now}: {rows}")
+    else:
+        print("No prices fetched.")
+
+if __name__ == "__main__":
+    now = datetime.now(timezone.utc)
+    # Визначаємо тип залежно від часу
+    if now.hour == OPEN_HOUR and now.minute == OPEN_MINUTE:
+        update_prices_csv("Open")
+    elif now.hour == CLOSE_HOUR and now.minute == CLOSE_MINUTE:
+        update_prices_csv("Close")
