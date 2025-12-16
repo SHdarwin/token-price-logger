@@ -378,3 +378,12 @@
 [2025-12-16 14:30:04] === Script started ===
 [2025-12-16 14:30:04] Fetched price: 87185.93
 [2025-12-16 14:30:04] Price written to CSV
+[2025-12-16 14:30:04] GIT ERR: warning: in the working copy of 'data/prices.csv', LF will be replaced by CRLF the next time Git touches it
+[2025-12-16 14:30:04] GIT OUT: [main 99be9d9] Auto update price 2025-12-16 14:30:04
+ 2 files changed, 10 insertions(+)
+[2025-12-16 14:30:07] GIT ERR: To https://github.com/SHdarwin/token-price-logger.git
+   3634696..99be9d9  main -> main
+[2025-12-16 14:30:07] === Script finished ===
+[2025-12-16 21:00:02] === Script started ===
+[2025-12-16 21:00:03] Fetched price: 87765.49
+[2025-12-16 21:00:03] Price written to CSV
