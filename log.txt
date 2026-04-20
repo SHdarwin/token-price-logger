@@ -2565,3 +2565,12 @@ fatal: unable to access 'https://github.com/SHdarwin/token-price-logger.git/': T
 [2026-04-19 21:00:04] === Script started ===
 [2026-04-19 21:00:06] Fetched price: 74790.37
 [2026-04-19 21:00:06] Price written to CSV
+[2026-04-19 21:00:07] GIT ERR: warning: in the working copy of 'data/prices.csv', LF will be replaced by CRLF the next time Git touches it
+[2026-04-19 21:00:07] GIT OUT: [main 041089d] Auto update price 2026-04-19 21:00:07
+ 2 files changed, 10 insertions(+)
+[2026-04-19 21:00:13] GIT ERR: To https://github.com/SHdarwin/token-price-logger.git
+   60c02f7..041089d  main -> main
+[2026-04-19 21:00:13] === Script finished ===
+[2026-04-20 14:30:06] === Script started ===
+[2026-04-20 14:30:07] Fetched price: 75138.0
+[2026-04-20 14:30:07] Price written to CSV
