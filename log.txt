@@ -3074,3 +3074,12 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.binance.com',
 [2026-05-14 14:30:04] === Script started ===
 [2026-05-14 14:30:04] Fetched price: 79355.22
 [2026-05-14 14:30:04] Price written to CSV
+[2026-05-14 14:30:04] GIT ERR: warning: in the working copy of 'data/prices.csv', LF will be replaced by CRLF the next time Git touches it
+[2026-05-14 14:30:05] GIT OUT: [main 581339a] Auto update price 2026-05-14 14:30:04
+ 2 files changed, 10 insertions(+)
+[2026-05-14 14:30:08] GIT ERR: To https://github.com/SHdarwin/token-price-logger.git
+   065275e..581339a  main -> main
+[2026-05-14 14:30:08] === Script finished ===
+[2026-05-14 21:00:03] === Script started ===
+[2026-05-14 21:00:04] Fetched price: 81671.4
+[2026-05-14 21:00:04] Price written to CSV
